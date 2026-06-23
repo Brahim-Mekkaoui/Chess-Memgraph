@@ -1,0 +1,1028 @@
+{
+  "openings": [
+    {
+      "name": "Attaque Grob",
+      "eco_code": "A00",
+      "moves": "1. g4",
+      "moves_raw": "g4",
+      "variant": "Irrégulière",
+      "fen": "rnbqkbnr/pppppppp/8/8/6P1/8/PPPPPP1P/RNBQKBNR b KQkq g3 0 1"
+    },
+    {
+      "name": "Attaque Nimzovitch-Larsen",
+      "eco_code": "A01",
+      "moves": "1. b3",
+      "moves_raw": "b3",
+      "variant": "Fianchetto Dame",
+      "fen": "rnbqkbnr/pppppppp/8/8/8/1P6/P1PPPPPP/RNBQKBNR b KQkq - 0 1"
+    },
+    {
+      "name": "Ouverture Bird",
+      "eco_code": "A02",
+      "moves": "1. f4",
+      "moves_raw": "f4",
+      "variant": "Principale",
+      "fen": "rnbqkbnr/pppppppp/8/8/5P2/8/PPPPP1PP/RNBQKBNR b KQkq f3 0 1"
+    },
+    {
+      "name": "Ouverture Réti",
+      "eco_code": "A04",
+      "moves": "1. Nf3",
+      "moves_raw": "Nf3",
+      "variant": "Principale",
+      "fen": "rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 1 1"
+    },
+    {
+      "name": "Réti - Défense Symétrique",
+      "eco_code": "A05",
+      "moves": "1. Nf3 Nf6",
+      "moves_raw": "Nf3 Nf6",
+      "variant": "Nf3 Nf6",
+      "fen": "rnbqkb1r/pppppppp/5n2/8/8/5N2/PPPPPPPP/RNBQKB1R w KQkq - 2 2"
+    },
+    {
+      "name": "Réti - King's Indian Attack",
+      "eco_code": "A07",
+      "moves": "1. Nf3 d5 2. g3",
+      "moves_raw": "Nf3 d5 g3",
+      "variant": "King's Indian Attack",
+      "fen": "rnbqkbnr/ppp1pppp/8/3p4/8/5NP1/PPPPPP1P/RNBQKB1R b KQkq - 0 2"
+    },
+    {
+      "name": "Ouverture Anglaise",
+      "eco_code": "A10",
+      "moves": "1. c4",
+      "moves_raw": "c4",
+      "variant": "Principale",
+      "fen": "rnbqkbnr/pppppppp/8/8/2P5/8/PP1PPPPP/RNBQKBNR b KQkq c3 0 1"
+    },
+    {
+      "name": "Anglaise - Variante du Roi",
+      "eco_code": "A20",
+      "moves": "1. c4 e5",
+      "moves_raw": "c4 e5",
+      "variant": "1.c4 e5",
+      "fen": "rnbqkbnr/pppp1ppp/8/4p3/2P5/8/PP1PPPPP/RNBQKBNR w KQkq e6 0 2"
+    },
+    {
+      "name": "Anglaise - Trois Cavaliers",
+      "eco_code": "A22",
+      "moves": "1. c4 e5 2. Nc3",
+      "moves_raw": "c4 e5 Nc3",
+      "variant": "Nc3",
+      "fen": "rnbqkbnr/pppp1ppp/8/4p3/2P5/2N5/PP1PPPPP/R1BQKBNR b KQkq - 1 2"
+    },
+    {
+      "name": "Anglaise - Symétrique",
+      "eco_code": "A30",
+      "moves": "1. c4 c5",
+      "moves_raw": "c4 c5",
+      "variant": "Symétrique",
+      "fen": "rnbqkbnr/pp1ppppp/8/2p5/2P5/8/PP1PPPPP/RNBQKBNR w KQkq c6 0 2"
+    },
+    {
+      "name": "Anglaise - Hedgehog",
+      "eco_code": "A30",
+      "moves": "1. c4 c5 2. Nf3 Nf6",
+      "moves_raw": "c4 c5 Nf3 Nf6",
+      "variant": "Hedgehog",
+      "fen": "rnbqkb1r/pp1ppppp/5n2/2p5/2P5/5N2/PP1PPPPP/RNBQKB1R w KQkq - 2 3"
+    },
+    {
+      "name": "Partie de Dame - Gambit Stonewall",
+      "eco_code": "A40",
+      "moves": "1. d4 e6",
+      "moves_raw": "d4 e6",
+      "variant": "1.d4 e6",
+      "fen": "rnbqkbnr/pppp1ppp/4p3/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2"
+    },
+    {
+      "name": "Vieux Benoni",
+      "eco_code": "A43",
+      "moves": "1. d4 c5",
+      "moves_raw": "d4 c5",
+      "variant": "Principale",
+      "fen": "rnbqkbnr/pp1ppppp/8/2p5/3P4/8/PPP1PPPP/RNBQKBNR w KQkq c6 0 2"
+    },
+    {
+      "name": "Attaque Trompowsky",
+      "eco_code": "A45",
+      "moves": "1. d4 Nf6 2. Bg5",
+      "moves_raw": "d4 Nf6 Bg5",
+      "variant": "Principale",
+      "fen": "rnbqkb1r/pppppppp/5n2/6B1/3P4/8/PPP1PPPP/RN1QKBNR b KQkq - 2 2"
+    },
+    {
+      "name": "Attaque Torre",
+      "eco_code": "A46",
+      "moves": "1. d4 Nf6 2. Nf3",
+      "moves_raw": "d4 Nf6 Nf3",
+      "variant": "Torre",
+      "fen": "rnbqkb1r/pppppppp/5n2/8/3P4/5N2/PPP1PPPP/RNBQKB1R b KQkq - 2 2"
+    },
+    {
+      "name": "Gambit Budapest",
+      "eco_code": "A51",
+      "moves": "1. d4 Nf6 2. c4 e5",
+      "moves_raw": "d4 Nf6 c4 e5",
+      "variant": "Principale",
+      "fen": "rnbqkb1r/pppp1ppp/5n2/4p3/2PP4/8/PP2PPPP/RNBQKBNR w KQkq e6 0 3"
+    },
+    {
+      "name": "Gambit Benko",
+      "eco_code": "A57",
+      "moves": "1. d4 Nf6 2. c4 c5 3. d5 b5",
+      "moves_raw": "d4 Nf6 c4 c5 d5 b5",
+      "variant": "Principale",
+      "fen": "rnbqkb1r/p2ppppp/5n2/1ppP4/2P5/8/PP2PPPP/RNBQKBNR w KQkq b6 0 4"
+    },
+    {
+      "name": "Benoni Moderne",
+      "eco_code": "A60",
+      "moves": "1. d4 Nf6 2. c4 c5 3. d5 e6",
+      "moves_raw": "d4 Nf6 c4 c5 d5 e6",
+      "variant": "Principale",
+      "fen": "rnbqkb1r/pp1p1ppp/4pn2/2pP4/2P5/8/PP2PPPP/RNBQKBNR w KQkq - 0 4"
+    },
+    {
+      "name": "Défense Hollandaise",
+      "eco_code": "A80",
+      "moves": "1. d4 f5",
+      "moves_raw": "d4 f5",
+      "variant": "Principale",
+      "fen": "rnbqkbnr/ppppp1pp/8/5p2/3P4/8/PPP1PPPP/RNBQKBNR w KQkq f6 0 2"
+    },
+    {
+      "name": "Hollandaise avec c4",
+      "eco_code": "A85",
+      "moves": "1. d4 f5 2. c4",
+      "moves_raw": "d4 f5 c4",
+      "variant": "c4",
+      "fen": "rnbqkbnr/ppppp1pp/8/5p2/2PP4/8/PP2PPPP/RNBQKBNR b KQkq c3 0 2"
+    },
+    {
+      "name": "Hollandaise Classique",
+      "eco_code": "A96",
+      "moves": "1. d4 f5 2. c4 e6 3. g3 Nf6 4. Bg2",
+      "moves_raw": "d4 f5 c4 e6 g3 Nf6 Bg2",
+      "variant": "Classique",
+      "fen": "rnbqkb1r/pppp2pp/4pn2/5p2/2PP4/6P1/PP2PPBP/RNBQK1NR b KQkq - 2 4"
+    },
+    {
+      "name": "Défense Nimzovitch",
+      "eco_code": "B00",
+      "moves": "1. e4 Nc6",
+      "moves_raw": "e4 Nc6",
+      "variant": "Principale",
+      "fen": "r1bqkbnr/pppppppp/2n5/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 1 2"
+    },
+    {
+      "name": "Défense Scandinave",
+      "eco_code": "B01",
+      "moves": "1. e4 d5",
+      "moves_raw": "e4 d5",
+      "variant": "Principale",
+      "fen": "rnbqkbnr/ppp1pppp/8/3p4/4P3/8/PPPP1PPP/RNBQKBNR w KQkq d6 0 2"
+    },
+    {
+      "name": "Scandinave - Variante Centrale",
+      "eco_code": "B01",
+      "moves": "1. e4 d5 2. exd5 Qxd5",
+      "moves_raw": "e4 d5 exd5 Qxd5",
+      "variant": "Qxd5",
+      "fen": "rnbqkbnr/ppp1pppp/8/3p4/4P3/8/PPPP1PPP/RNBQKBNR w KQkq d6 0 2"
+    },
+    {
+      "name": "Défense Alekhine",
+      "eco_code": "B02",
+      "moves": "1. e4 Nf6",
+      "moves_raw": "e4 Nf6",
+      "variant": "Principale",
+      "fen": "rnbqkb1r/pppppppp/5n2/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 1 2"
+    },
+    {
+      "name": "Alekhine - Variante des Quatre Pions",
+      "eco_code": "B03",
+      "moves": "1. e4 Nf6 2. e5 Nd5 3. d4 d6 4. c4",
+      "moves_raw": "e4 Nf6 e5 Nd5 d4 d6 c4",
+      "variant": "Quatre Pions",
+      "fen": "rnbqkb1r/ppp1pppp/3p4/3nP3/2PP4/8/PP3PPP/RNBQKBNR b KQkq c3 0 4"
+    },
+    {
+      "name": "Défense Moderne",
+      "eco_code": "B06",
+      "moves": "1. e4 g6",
+      "moves_raw": "e4 g6",
+      "variant": "Principale",
+      "fen": "rnbqkbnr/pppppp1p/6p1/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2"
+    },
+    {
+      "name": "Défense Pirc",
+      "eco_code": "B07",
+      "moves": "1. e4 d6",
+      "moves_raw": "e4 d6",
+      "variant": "Principale",
+      "fen": "rnbqkbnr/ppp1pppp/3p4/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2"
+    },
+    {
+      "name": "Pirc - Variante Classique",
+      "eco_code": "B08",
+      "moves": "1. e4 d6 2. d4 Nf6 3. Nc3 g6",
+      "moves_raw": "e4 d6 d4 Nf6 Nc3 g6",
+      "variant": "Classique",
+      "fen": "rnbqkb1r/ppp1pp1p/3p1np1/8/3PP3/2N5/PPP2PPP/R1BQKBNR w KQkq - 0 4"
+    },
+    {
+      "name": "Défense Caro-Kann",
+      "eco_code": "B10",
+      "moves": "1. e4 c6",
+      "moves_raw": "e4 c6",
+      "variant": "Principale",
+      "fen": "rnbqkbnr/pp1ppppp/2p5/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2"
+    },
+    {
+      "name": "Caro-Kann - Variante Avancée",
+      "eco_code": "B12",
+      "moves": "1. e4 c6 2. d4 d5 3. e5",
+      "moves_raw": "e4 c6 d4 d5 e5",
+      "variant": "Avancée",
+      "fen": "rnbqkbnr/pp2pppp/2p5/3pP3/3P4/8/PPP2PPP/RNBQKBNR b KQkq - 0 3"
+    },
+    {
+      "name": "Caro-Kann - Variante Échange",
+      "eco_code": "B13",
+      "moves": "1. e4 c6 2. d4 d5 3. exd5 cxd5",
+      "moves_raw": "e4 c6 d4 d5 exd5 cxd5",
+      "variant": "Échange",
+      "fen": "rnbqkbnr/pp2pppp/8/3p4/3P4/8/PPP2PPP/RNBQKBNR w KQkq - 0 4"
+    },
+    {
+      "name": "Caro-Kann - Ligne Principale",
+      "eco_code": "B15",
+      "moves": "1. e4 c6 2. d4 d5 3. Nc3",
+      "moves_raw": "e4 c6 d4 d5 Nc3",
+      "variant": "3.Nc3",
+      "fen": "rnbqkbnr/pp2pppp/2p5/3p4/3PP3/2N5/PPP2PPP/R1BQKBNR b KQkq - 1 3"
+    },
+    {
+      "name": "Défense Sicilienne",
+      "eco_code": "B20",
+      "moves": "1. e4 c5",
+      "moves_raw": "e4 c5",
+      "variant": "Principale",
+      "fen": "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq c6 0 2"
+    },
+    {
+      "name": "Sicilienne - Gambit Smith-Morra",
+      "eco_code": "B21",
+      "moves": "1. e4 c5 2. d4 cxd4 3. c3",
+      "moves_raw": "e4 c5 d4 cxd4 c3",
+      "variant": "Smith-Morra",
+      "fen": "rnbqkbnr/pp1ppppp/8/8/3pP3/2P5/PP3PPP/RNBQKBNR b KQkq - 0 3"
+    },
+    {
+      "name": "Sicilienne - Variante Alapin",
+      "eco_code": "B22",
+      "moves": "1. e4 c5 2. c3",
+      "moves_raw": "e4 c5 c3",
+      "variant": "Alapin",
+      "fen": "rnbqkbnr/pp1ppppp/8/2p5/4P3/2P5/PP1P1PPP/RNBQKBNR b KQkq - 0 2"
+    },
+    {
+      "name": "Sicilienne Fermée",
+      "eco_code": "B23",
+      "moves": "1. e4 c5 2. Nc3",
+      "moves_raw": "e4 c5 Nc3",
+      "variant": "Fermée",
+      "fen": "rnbqkbnr/pp1ppppp/8/2p5/4P3/2N5/PPPP1PPP/R1BQKBNR b KQkq - 1 2"
+    },
+    {
+      "name": "Sicilienne - Variante Hongroise",
+      "eco_code": "B27",
+      "moves": "1. e4 c5 2. Nf3 g6",
+      "moves_raw": "e4 c5 Nf3 g6",
+      "variant": "Hongroise",
+      "fen": "rnbqkbnr/pp1ppp1p/6p1/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3"
+    },
+    {
+      "name": "Vieille Sicilienne",
+      "eco_code": "B30",
+      "moves": "1. e4 c5 2. Nf3 Nc6",
+      "moves_raw": "e4 c5 Nf3 Nc6",
+      "variant": "2.Nf3 Nc6",
+      "fen": "r1bqkbnr/pp1ppppp/2n5/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3"
+    },
+    {
+      "name": "Sicilienne - Variante Française",
+      "eco_code": "B40",
+      "moves": "1. e4 c5 2. Nf3 e6",
+      "moves_raw": "e4 c5 Nf3 e6",
+      "variant": "Française",
+      "fen": "rnbqkbnr/pp1p1ppp/4p3/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3"
+    },
+    {
+      "name": "Sicilienne - Taimanov",
+      "eco_code": "B45",
+      "moves": "1. e4 c5 2. Nf3 e6 3. d4 cxd4 4. Nxd4 Nc6",
+      "moves_raw": "e4 c5 Nf3 e6 d4 cxd4 Nxd4 Nc6",
+      "variant": "Taimanov",
+      "fen": "r1bqkbnr/pp1p1ppp/2n1p3/8/3NP3/8/PPP2PPP/RNBQKB1R w KQkq - 2 5"
+    },
+    {
+      "name": "Sicilienne - 2.Nf3 d6",
+      "eco_code": "B50",
+      "moves": "1. e4 c5 2. Nf3 d6",
+      "moves_raw": "e4 c5 Nf3 d6",
+      "variant": "2.Nf3 d6",
+      "fen": "rnbqkbnr/pp2pppp/3p4/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3"
+    },
+    {
+      "name": "Sicilienne - Canal-Sofia",
+      "eco_code": "B52",
+      "moves": "1. e4 c5 2. Nf3 d6 3. Bb5+",
+      "moves_raw": "e4 c5 Nf3 d6 Bb5",
+      "variant": "Canal",
+      "fen": "rnbqkbnr/pp2pppp/3p4/1Bp5/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 1 3"
+    },
+    {
+      "name": "Sicilienne - Richter-Rauzer",
+      "eco_code": "B60",
+      "moves": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 Nc6 6. Bg5",
+      "moves_raw": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 Nc6 Bg5",
+      "variant": "Richter-Rauzer",
+      "fen": "r1bqkb1r/pp2pppp/2np1n2/6B1/3NP3/2N5/PPP2PPP/R2QKB1R b KQkq - 1 6"
+    },
+    {
+      "name": "Sicilienne - Dragon",
+      "eco_code": "B70",
+      "moves": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 g6",
+      "moves_raw": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 g6",
+      "variant": "Dragon",
+      "fen": "rnbqkb1r/pp2pp1p/3p1np1/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 6"
+    },
+    {
+      "name": "Sicilienne - Dragon, Variante Yougoslave",
+      "eco_code": "B76",
+      "moves": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 g6 6. Be3 Bg7 7. f3",
+      "moves_raw": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 g6 Be3 Bg7 f3",
+      "variant": "Yougoslave",
+      "fen": "rnbqk2r/pp2ppbp/3p1np1/8/3NP3/2N1BP2/PPP3PP/R2QKB1R b KQkq - 0 7"
+    },
+    {
+      "name": "Sicilienne - Scheveningen",
+      "eco_code": "B80",
+      "moves": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 e6",
+      "moves_raw": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 e6",
+      "variant": "Scheveningen",
+      "fen": "rnbqkb1r/pp3ppp/3ppn2/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 6"
+    },
+    {
+      "name": "Sicilienne - Attaque Keres",
+      "eco_code": "B81",
+      "moves": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 e6 6. g4",
+      "moves_raw": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 e6 g4",
+      "variant": "Keres",
+      "fen": "rnbqkb1r/pp3ppp/3ppn2/8/3NPP1P/2N5/PPP3P1/R1BQKB1R b KQkq g3 0 6"
+    },
+    {
+      "name": "Sicilienne - Najdorf",
+      "eco_code": "B90",
+      "moves": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6",
+      "moves_raw": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 a6",
+      "variant": "Najdorf",
+      "fen": "rnbqkb1r/1p2pppp/p2p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 6"
+    },
+    {
+      "name": "Sicilienne - Najdorf, Système Opocensky",
+      "eco_code": "B92",
+      "moves": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6 6. Be2",
+      "moves_raw": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 a6 Be2",
+      "variant": "Najdorf, Be2",
+      "fen": "rnbqkb1r/1p2pppp/p2p1n2/8/3NP3/2N5/PPP1BPPP/R1BQK2R b KQkq - 1 6"
+    },
+    {
+      "name": "Sicilienne - Najdorf, Pion Empoisonné",
+      "eco_code": "B97",
+      "moves": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6 6. Bg5 e6 7. f4 Qb6",
+      "moves_raw": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 a6 Bg5 e6 f4 Qb6",
+      "variant": "Pion Empoisonné",
+      "fen": "rnb1kb1r/1p3ppp/pq1ppn2/6B1/3NPP2/2N5/PPP3PP/R2QKB1R w KQkq - 2 8"
+    },
+    {
+      "name": "Défense Française",
+      "eco_code": "C00",
+      "moves": "1. e4 e6",
+      "moves_raw": "e4 e6",
+      "variant": "Principale",
+      "fen": "rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2"
+    },
+    {
+      "name": "Française - Variante Avancée",
+      "eco_code": "C02",
+      "moves": "1. e4 e6 2. d4 d5 3. e5",
+      "moves_raw": "e4 e6 d4 d5 e5",
+      "variant": "Avancée",
+      "fen": "rnbqkbnr/ppp2ppp/4p3/3pP3/3P4/8/PPP2PPP/RNBQKBNR b KQkq - 0 3"
+    },
+    {
+      "name": "Française - Variante Tarrasch",
+      "eco_code": "C03",
+      "moves": "1. e4 e6 2. d4 d5 3. Nd2",
+      "moves_raw": "e4 e6 d4 d5 Nd2",
+      "variant": "Tarrasch",
+      "fen": "rnbqkbnr/ppp2ppp/4p3/3p4/3PP3/8/PPPN1PPP/R1BQKBNR b KQkq - 1 3"
+    },
+    {
+      "name": "Française - Variante Rubinstein",
+      "eco_code": "C10",
+      "moves": "1. e4 e6 2. d4 d5 3. Nc3 dxe4",
+      "moves_raw": "e4 e6 d4 d5 Nc3 dxe4",
+      "variant": "Rubinstein",
+      "fen": "rnbqkbnr/ppp2ppp/4p3/8/3Pp3/2N5/PPP2PPP/R1BQKBNR w KQkq - 0 4"
+    },
+    {
+      "name": "Française - Variante Classique",
+      "eco_code": "C11",
+      "moves": "1. e4 e6 2. d4 d5 3. Nc3 Nf6",
+      "moves_raw": "e4 e6 d4 d5 Nc3 Nf6",
+      "variant": "Classique",
+      "fen": "rnbqkb1r/ppp2ppp/4pn2/3p4/3PP3/2N5/PPP2PPP/R1BQKBNR w KQkq - 2 4"
+    },
+    {
+      "name": "Française - MacCutcheon",
+      "eco_code": "C12",
+      "moves": "1. e4 e6 2. d4 d5 3. Nc3 Nf6 4. Bg5 Bb4",
+      "moves_raw": "e4 e6 d4 d5 Nc3 Nf6 Bg5 Bb4",
+      "variant": "MacCutcheon",
+      "fen": "rnbqk2r/ppp2ppp/4pn2/3p2B1/1b1PP3/2N5/PPP2PPP/R2QKBNR w KQkq - 2 5"
+    },
+    {
+      "name": "Française - Winawer",
+      "eco_code": "C15",
+      "moves": "1. e4 e6 2. d4 d5 3. Nc3 Bb4",
+      "moves_raw": "e4 e6 d4 d5 Nc3 Bb4",
+      "variant": "Winawer",
+      "fen": "rnbqk1nr/ppp2ppp/4p3/3p4/1b1PP3/2N5/PPP2PPP/R1BQKBNR w KQkq - 2 4"
+    },
+    {
+      "name": "Partie du Roi",
+      "eco_code": "C20",
+      "moves": "1. e4 e5",
+      "moves_raw": "e4 e5",
+      "variant": "Principale",
+      "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2"
+    },
+    {
+      "name": "Partie du Centre",
+      "eco_code": "C21",
+      "moves": "1. e4 e5 2. d4",
+      "moves_raw": "e4 e5 d4",
+      "variant": "Centre",
+      "fen": "rnbqkbnr/pppp1ppp/8/4p3/3PP3/8/PPP2PPP/RNBQKBNR b KQkq d3 0 2"
+    },
+    {
+      "name": "Ouverture du Fou",
+      "eco_code": "C23",
+      "moves": "1. e4 e5 2. Bc4",
+      "moves_raw": "e4 e5 Bc4",
+      "variant": "Principale",
+      "fen": "rnbqkbnr/pppp1ppp/8/4p3/2B1P3/8/PPPP1PPP/RNBQK1NR b KQkq - 1 2"
+    },
+    {
+      "name": "Ouverture du Fou - Défense de Berlin",
+      "eco_code": "C24",
+      "moves": "1. e4 e5 2. Bc4 Nf6",
+      "moves_raw": "e4 e5 Bc4 Nf6",
+      "variant": "Berlin",
+      "fen": "rnbqkb1r/pppp1ppp/5n2/4p3/2B1P3/8/PPPP1PPP/RNBQK1NR w KQkq - 2 3"
+    },
+    {
+      "name": "Partie Viennoise",
+      "eco_code": "C25",
+      "moves": "1. e4 e5 2. Nc3",
+      "moves_raw": "e4 e5 Nc3",
+      "variant": "Principale",
+      "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/2N5/PPPP1PPP/R1BQKBNR b KQkq - 1 2"
+    },
+    {
+      "name": "Viennoise - Gambit",
+      "eco_code": "C26",
+      "moves": "1. e4 e5 2. Nc3 Nf6 3. f4",
+      "moves_raw": "e4 e5 Nc3 Nf6 f4",
+      "variant": "Gambit",
+      "fen": "rnbqkb1r/pppp1ppp/5n2/4p3/4PP2/2N5/PPPP2PP/R1BQKBNR b KQkq f3 0 3"
+    },
+    {
+      "name": "Gambit du Roi",
+      "eco_code": "C30",
+      "moves": "1. e4 e5 2. f4",
+      "moves_raw": "e4 e5 f4",
+      "variant": "Principale",
+      "fen": "rnbqkbnr/pppp1ppp/8/4p3/4PP2/8/PPPP2PP/RNBQKBNR b KQkq f3 0 2"
+    },
+    {
+      "name": "Gambit du Roi Accepté",
+      "eco_code": "C33",
+      "moves": "1. e4 e5 2. f4 exf4",
+      "moves_raw": "e4 e5 f4 exf4",
+      "variant": "Accepté",
+      "fen": "rnbqkbnr/pppp1ppp/8/8/4Pp2/8/PPPP2PP/RNBQKBNR w KQkq - 0 3"
+    },
+    {
+      "name": "Gambit du Roi Accepté - Variante Cunningham",
+      "eco_code": "C35",
+      "moves": "1. e4 e5 2. f4 exf4 3. Nf3 Be7",
+      "moves_raw": "e4 e5 f4 exf4 Nf3 Be7",
+      "variant": "Cunningham",
+      "fen": "rnbqk1nr/ppppbppp/8/8/4Pp2/5N2/PPPP2PP/RNBQKB1R w KQkq - 2 4"
+    },
+    {
+      "name": "Défense Philidor",
+      "eco_code": "C41",
+      "moves": "1. e4 e5 2. Nf3 d6",
+      "moves_raw": "e4 e5 Nf3 d6",
+      "variant": "Principale",
+      "fen": "rnbqkbnr/ppp2ppp/3p4/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3"
+    },
+    {
+      "name": "Défense Petrov",
+      "eco_code": "C42",
+      "moves": "1. e4 e5 2. Nf3 Nf6",
+      "moves_raw": "e4 e5 Nf3 Nf6",
+      "variant": "Principale",
+      "fen": "rnbqkb1r/pppp1ppp/5n2/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3"
+    },
+    {
+      "name": "Petrov - Attaque Moderne",
+      "eco_code": "C43",
+      "moves": "1. e4 e5 2. Nf3 Nf6 3. d4",
+      "moves_raw": "e4 e5 Nf3 Nf6 d4",
+      "variant": "Attaque Moderne",
+      "fen": "rnbqkb1r/pppp1ppp/5n2/4p3/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq d3 0 3"
+    },
+    {
+      "name": "Ouverture Ponziani",
+      "eco_code": "C44",
+      "moves": "1. e4 e5 2. Nf3 Nc6 3. c3",
+      "moves_raw": "e4 e5 Nf3 Nc6 c3",
+      "variant": "Principale",
+      "fen": "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/2P2N2/PP1P1PPP/RNBQKB1R b KQkq - 0 3"
+    },
+    {
+      "name": "Partie Écossaise",
+      "eco_code": "C45",
+      "moves": "1. e4 e5 2. Nf3 Nc6 3. d4",
+      "moves_raw": "e4 e5 Nf3 Nc6 d4",
+      "variant": "Principale",
+      "fen": "r1bqkbnr/pppp1ppp/2n5/4p3/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq d3 0 3"
+    },
+    {
+      "name": "Écossaise - Gambit",
+      "eco_code": "C45",
+      "moves": "1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. Bc4",
+      "moves_raw": "e4 e5 Nf3 Nc6 d4 exd4 Bc4",
+      "variant": "Gambit",
+      "fen": "r1bqkbnr/pppp1ppp/2n5/8/2BpP3/5N2/PPP2PPP/RNBQK2R b KQkq - 1 4"
+    },
+    {
+      "name": "Partie des Trois Cavaliers",
+      "eco_code": "C46",
+      "moves": "1. e4 e5 2. Nf3 Nc6 3. Nc3",
+      "moves_raw": "e4 e5 Nf3 Nc6 Nc3",
+      "variant": "Trois Cavaliers",
+      "fen": "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/2N2N2/PPPP1PPP/R1BQKB1R b KQkq - 3 3"
+    },
+    {
+      "name": "Partie des Quatre Cavaliers",
+      "eco_code": "C47",
+      "moves": "1. e4 e5 2. Nf3 Nc6 3. Nc3 Nf6",
+      "moves_raw": "e4 e5 Nf3 Nc6 Nc3 Nf6",
+      "variant": "Quatre Cavaliers",
+      "fen": "r1bqkb1r/pppp1ppp/2n2n2/4p3/4P3/2N2N2/PPPP1PPP/R1BQKB1R w KQkq - 4 4"
+    },
+    {
+      "name": "Giuoco Piano",
+      "eco_code": "C50",
+      "moves": "1. e4 e5 2. Nf3 Nc6 3. Bc4",
+      "moves_raw": "e4 e5 Nf3 Nc6 Bc4",
+      "variant": "Principale",
+      "fen": "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3"
+    },
+    {
+      "name": "Gambit Evans",
+      "eco_code": "C51",
+      "moves": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. b4",
+      "moves_raw": "e4 e5 Nf3 Nc6 Bc4 Bc5 b4",
+      "variant": "Principale",
+      "fen": "r1bqk1nr/pppp1ppp/2n5/2b1p3/1PB1P3/5N2/P1PP1PPP/RNBQK2R b KQkq b3 0 4"
+    },
+    {
+      "name": "Gambit Evans Accepté",
+      "eco_code": "C52",
+      "moves": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. b4 Bxb4",
+      "moves_raw": "e4 e5 Nf3 Nc6 Bc4 Bc5 b4 Bxb4",
+      "variant": "Accepté",
+      "fen": "r1bqk1nr/pppp1ppp/2n5/4p3/1bB1P3/5N2/P1PP1PPP/RNBQK2R w KQkq - 0 5"
+    },
+    {
+      "name": "Giuoco Piano - Variante Greco",
+      "eco_code": "C54",
+      "moves": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. c3",
+      "moves_raw": "e4 e5 Nf3 Nc6 Bc4 Bc5 c3",
+      "variant": "Greco / c3",
+      "fen": "r1bqk1nr/pppp1ppp/2n5/2b1p3/2B1P3/2P2N2/PP1P1PPP/RNBQK2R b KQkq - 0 4"
+    },
+    {
+      "name": "Défense des Deux Cavaliers",
+      "eco_code": "C55",
+      "moves": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6",
+      "moves_raw": "e4 e5 Nf3 Nc6 Bc4 Nf6",
+      "variant": "Principale",
+      "fen": "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4"
+    },
+    {
+      "name": "Deux Cavaliers - Variante Fritz",
+      "eco_code": "C57",
+      "moves": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. Ng5 d5 5. exd5 Nd4",
+      "moves_raw": "e4 e5 Nf3 Nc6 Bc4 Nf6 Ng5 d5 exd5 Nd4",
+      "variant": "Fritz",
+      "fen": "r1bqkb1r/ppp2ppp/5n2/3Pp1N1/2Bn4/8/PPPP1PPP/RNBQK2R w KQkq - 1 6"
+    },
+    {
+      "name": "Ruy Lopez (Partie Espagnole)",
+      "eco_code": "C60",
+      "moves": "1. e4 e5 2. Nf3 Nc6 3. Bb5",
+      "moves_raw": "e4 e5 Nf3 Nc6 Bb5",
+      "variant": "Principale",
+      "fen": "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3"
+    },
+    {
+      "name": "Ruy Lopez - Vieux Steinitz",
+      "eco_code": "C62",
+      "moves": "1. e4 e5 2. Nf3 Nc6 3. Bb5 d6",
+      "moves_raw": "e4 e5 Nf3 Nc6 Bb5 d6",
+      "variant": "Vieux Steinitz",
+      "fen": "r1bqkbnr/ppp2ppp/2np4/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4"
+    },
+    {
+      "name": "Ruy Lopez - Schliemann",
+      "eco_code": "C63",
+      "moves": "1. e4 e5 2. Nf3 Nc6 3. Bb5 f5",
+      "moves_raw": "e4 e5 Nf3 Nc6 Bb5 f5",
+      "variant": "Schliemann",
+      "fen": "r1bqkbnr/pppp2pp/2n5/1B2pp2/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq f6 0 4"
+    },
+    {
+      "name": "Ruy Lopez - Défense de Berlin",
+      "eco_code": "C65",
+      "moves": "1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6",
+      "moves_raw": "e4 e5 Nf3 Nc6 Bb5 Nf6",
+      "variant": "Berlin",
+      "fen": "r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4"
+    },
+    {
+      "name": "Ruy Lopez - Variante Échange",
+      "eco_code": "C68",
+      "moves": "1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Bxc6",
+      "moves_raw": "e4 e5 Nf3 Nc6 Bb5 a6 Bxc6",
+      "variant": "Échange",
+      "fen": "r1bqkbnr/1ppp1ppp/p1B5/4p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 4"
+    },
+    {
+      "name": "Ruy Lopez - Variante Fermée",
+      "eco_code": "C84",
+      "moves": "1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O",
+      "moves_raw": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O",
+      "variant": "Fermée",
+      "fen": "r1bqkb1r/1ppp1ppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 b kq - 5 5"
+    },
+    {
+      "name": "Ruy Lopez - Fermée, Be7",
+      "eco_code": "C88",
+      "moves": "1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Be7",
+      "moves_raw": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7",
+      "variant": "Be7",
+      "fen": "r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq - 6 6"
+    },
+    {
+      "name": "Ruy Lopez - Fermée, Chigorin",
+      "eco_code": "C97",
+      "moves": "1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Be7 6. Re1 b5 7. Bb3 d6 8. c3 O-O 9. h3 Na5",
+      "moves_raw": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 d6 c3 O-O h3 Na5",
+      "variant": "Chigorin",
+      "fen": "r1bq1rk1/2p1bppp/p2p1n2/np2p3/4P3/1BP2N1P/PP1P1PP1/RNBQR1K1 w - - 2 10"
+    },
+    {
+      "name": "Partie de la Dame",
+      "eco_code": "D00",
+      "moves": "1. d4 d5",
+      "moves_raw": "d4 d5",
+      "variant": "Principale",
+      "fen": "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq d6 0 2"
+    },
+    {
+      "name": "Attaque Richter-Veresov",
+      "eco_code": "D01",
+      "moves": "1. d4 Nf6 2. Nc3 d5 3. Bg5",
+      "moves_raw": "d4 Nf6 Nc3 d5 Bg5",
+      "variant": "Principale",
+      "fen": "rnbqkb1r/ppp1pppp/5n2/3p2B1/3P4/2N5/PPP1PPPP/R2QKBNR b KQkq - 3 3"
+    },
+    {
+      "name": "Système de Londres",
+      "eco_code": "D02",
+      "moves": "1. d4 d5 2. Nf3 Nf6 3. Bf4",
+      "moves_raw": "d4 d5 Nf3 Nf6 Bf4",
+      "variant": "Principale",
+      "fen": "rnbqkb1r/ppp1pppp/5n2/3p4/3P1B2/5N2/PPP1PPPP/RN1QKB1R b KQkq - 3 3"
+    },
+    {
+      "name": "Système Colle",
+      "eco_code": "D05",
+      "moves": "1. d4 d5 2. Nf3 Nf6 3. e3",
+      "moves_raw": "d4 d5 Nf3 Nf6 e3",
+      "variant": "Principale",
+      "fen": "rnbqkb1r/ppp1pppp/5n2/3p4/3P4/4PN2/PPP2PPP/RNBQKB1R b KQkq - 0 3"
+    },
+    {
+      "name": "Gambit de la Dame",
+      "eco_code": "D06",
+      "moves": "1. d4 d5 2. c4",
+      "moves_raw": "d4 d5 c4",
+      "variant": "Principale",
+      "fen": "rnbqkbnr/ppp1pppp/8/3p4/2PP4/8/PP2PPPP/RNBQKBNR b KQkq c3 0 2"
+    },
+    {
+      "name": "Défense Chigorin",
+      "eco_code": "D07",
+      "moves": "1. d4 d5 2. c4 Nc6",
+      "moves_raw": "d4 d5 c4 Nc6",
+      "variant": "Chigorin",
+      "fen": "r1bqkbnr/ppp1pppp/2n5/3p4/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 1 3"
+    },
+    {
+      "name": "Contre-Gambit Albin",
+      "eco_code": "D08",
+      "moves": "1. d4 d5 2. c4 e5",
+      "moves_raw": "d4 d5 c4 e5",
+      "variant": "Albin",
+      "fen": "rnbqkbnr/ppp2ppp/8/3pp3/2PP4/8/PP2PPPP/RNBQKBNR w KQkq e6 0 3"
+    },
+    {
+      "name": "Défense Slave",
+      "eco_code": "D10",
+      "moves": "1. d4 d5 2. c4 c6",
+      "moves_raw": "d4 d5 c4 c6",
+      "variant": "Principale",
+      "fen": "rnbqkbnr/pp2pppp/2p5/3p4/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3"
+    },
+    {
+      "name": "Slave - Ligne Principale",
+      "eco_code": "D15",
+      "moves": "1. d4 d5 2. c4 c6 3. Nf3 Nf6 4. Nc3",
+      "moves_raw": "d4 d5 c4 c6 Nf3 Nf6 Nc3",
+      "variant": "4.Nc3",
+      "fen": "rnbqkb1r/pp2pppp/2p2n2/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R b KQkq - 3 4"
+    },
+    {
+      "name": "Gambit de la Dame Accepté",
+      "eco_code": "D20",
+      "moves": "1. d4 d5 2. c4 dxc4",
+      "moves_raw": "d4 d5 c4 dxc4",
+      "variant": "Principale",
+      "fen": "rnbqkbnr/ppp1pppp/8/8/2pP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3"
+    },
+    {
+      "name": "Gambit de la Dame Refusé",
+      "eco_code": "D30",
+      "moves": "1. d4 d5 2. c4 e6",
+      "moves_raw": "d4 d5 c4 e6",
+      "variant": "Principale",
+      "fen": "rnbqkbnr/ppp2ppp/4p3/3p4/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3"
+    },
+    {
+      "name": "GDR - Variante Janowski",
+      "eco_code": "D31",
+      "moves": "1. d4 d5 2. c4 e6 3. Nc3",
+      "moves_raw": "d4 d5 c4 e6 Nc3",
+      "variant": "Janowski",
+      "fen": "rnbqkbnr/ppp2ppp/4p3/3p4/2PP4/2N5/PP2PPPP/R1BQKBNR b KQkq - 1 3"
+    },
+    {
+      "name": "GDR - Variante Échange",
+      "eco_code": "D35",
+      "moves": "1. d4 d5 2. c4 e6 3. Nc3 Nf6 4. cxd5 exd5",
+      "moves_raw": "d4 d5 c4 e6 Nc3 Nf6 cxd5 exd5",
+      "variant": "Échange",
+      "fen": "rnbqkb1r/ppp2ppp/5n2/3p4/3P4/2N5/PP2PPPP/R1BQKBNR w KQkq - 0 5"
+    },
+    {
+      "name": "GDR - Variante Classique",
+      "eco_code": "D37",
+      "moves": "1. d4 d5 2. c4 e6 3. Nc3 Nf6 4. Nf3",
+      "moves_raw": "d4 d5 c4 e6 Nc3 Nf6 Nf3",
+      "variant": "Classique",
+      "fen": "rnbqkb1r/ppp2ppp/4pn2/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R b KQkq - 3 4"
+    },
+    {
+      "name": "Semi-Slave",
+      "eco_code": "D43",
+      "moves": "1. d4 d5 2. c4 c6 3. Nf3 Nf6 4. Nc3 e6",
+      "moves_raw": "d4 d5 c4 c6 Nf3 Nf6 Nc3 e6",
+      "variant": "Principale",
+      "fen": "rnbqkb1r/pp3ppp/2p1pn2/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R w KQkq - 0 5"
+    },
+    {
+      "name": "GDR - Anti-Moscou",
+      "eco_code": "D44",
+      "moves": "1. d4 d5 2. c4 c6 3. Nf3 Nf6 4. Nc3 e6 5. Bg5 dxc4",
+      "moves_raw": "d4 d5 c4 c6 Nf3 Nf6 Nc3 e6 Bg5 dxc4",
+      "variant": "Anti-Moscou",
+      "fen": "rnbqkb1r/pp3ppp/2p1pn2/6B1/2pP4/2N2N2/PP2PPPP/R2QKB1R w KQkq - 0 6"
+    },
+    {
+      "name": "GDR - Défense Lasker",
+      "eco_code": "D57",
+      "moves": "1. d4 d5 2. c4 e6 3. Nc3 Nf6 4. Bg5 Be7 5. e3 O-O 6. Nf3 Ne4",
+      "moves_raw": "d4 d5 c4 e6 Nc3 Nf6 Bg5 Be7 e3 O-O Nf3 Ne4",
+      "variant": "Lasker",
+      "fen": "rnbq1rk1/ppp1bppp/4p3/3p2B1/2PPn3/2N1PN2/PP3PPP/R2QKB1R w KQ - 6 7"
+    },
+    {
+      "name": "Défense Néo-Grünfeld",
+      "eco_code": "D70",
+      "moves": "1. d4 Nf6 2. c4 g6 3. f3",
+      "moves_raw": "d4 Nf6 c4 g6 f3",
+      "variant": "Principale",
+      "fen": "rnbqkb1r/pppppp1p/5np1/8/2PP4/5P2/PP2P1PP/RNBQKBNR b KQkq - 0 3"
+    },
+    {
+      "name": "Défense Grünfeld",
+      "eco_code": "D80",
+      "moves": "1. d4 Nf6 2. c4 g6 3. Nc3 d5",
+      "moves_raw": "d4 Nf6 c4 g6 Nc3 d5",
+      "variant": "Principale",
+      "fen": "rnbqkb1r/ppp1pp1p/5np1/3p4/2PP4/2N5/PP2PPPP/R1BQKBNR w KQkq d6 0 4"
+    },
+    {
+      "name": "Grünfeld - Variante Échange",
+      "eco_code": "D85",
+      "moves": "1. d4 Nf6 2. c4 g6 3. Nc3 d5 4. cxd5 Nxd5 5. e4",
+      "moves_raw": "d4 Nf6 c4 g6 Nc3 d5 cxd5 Nxd5 e4",
+      "variant": "Échange",
+      "fen": "rnbqkb1r/ppp1pp1p/6p1/3nP3/3P4/2N5/PP3PPP/R1BQKBNR b KQkq - 0 5"
+    },
+    {
+      "name": "Grünfeld - Variante Flohr",
+      "eco_code": "D90",
+      "moves": "1. d4 Nf6 2. c4 g6 3. Nc3 d5 4. Nf3",
+      "moves_raw": "d4 Nf6 c4 g6 Nc3 d5 Nf3",
+      "variant": "Flohr",
+      "fen": "rnbqkb1r/ppp1pp1p/5np1/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R b KQkq - 1 4"
+    },
+    {
+      "name": "Ouverture Catalane",
+      "eco_code": "E00",
+      "moves": "1. d4 Nf6 2. c4 e6 3. g3",
+      "moves_raw": "d4 Nf6 c4 e6 g3",
+      "variant": "Principale",
+      "fen": "rnbqkb1r/pppp1ppp/4pn2/8/2PP4/6P1/PP2PP1P/RNBQKBNR b KQkq - 0 3"
+    },
+    {
+      "name": "Catalane - Variante Ouverte",
+      "eco_code": "E05",
+      "moves": "1. d4 Nf6 2. c4 e6 3. g3 d5 4. Bg2 dxc4",
+      "moves_raw": "d4 Nf6 c4 e6 g3 d5 Bg2 dxc4",
+      "variant": "Ouverte",
+      "fen": "rnbqkb1r/ppp2ppp/4pn2/8/2pP4/6P1/PP2PPBP/RNBQK1NR w KQkq - 0 5"
+    },
+    {
+      "name": "Défense Indienne de la Dame",
+      "eco_code": "E10",
+      "moves": "1. d4 Nf6 2. c4 e6 3. Nf3",
+      "moves_raw": "d4 Nf6 c4 e6 Nf3",
+      "variant": "Principale",
+      "fen": "rnbqkb1r/pppp1ppp/4pn2/8/2PP4/5N2/PP2PPPP/RNBQKB1R b KQkq - 1 3"
+    },
+    {
+      "name": "Indienne de la Dame - Système Petrosian",
+      "eco_code": "E12",
+      "moves": "1. d4 Nf6 2. c4 e6 3. Nf3 b6 4. Nc3",
+      "moves_raw": "d4 Nf6 c4 e6 Nf3 b6 Nc3",
+      "variant": "Petrosian",
+      "fen": "rnbqkb1r/p1pp1ppp/1p2pn2/8/2PP4/2N2N2/PP2PPPP/R1BQKB1R b KQkq - 2 4"
+    },
+    {
+      "name": "Indienne de la Dame - Variante Nimzowitsch",
+      "eco_code": "E15",
+      "moves": "1. d4 Nf6 2. c4 e6 3. Nf3 b6 4. g3",
+      "moves_raw": "d4 Nf6 c4 e6 Nf3 b6 g3",
+      "variant": "Nimzowitsch",
+      "fen": "rnbqkb1r/p1pp1ppp/1p2pn2/8/2PP4/5NP1/PP2PP1P/RNBQKB1R b KQkq - 0 4"
+    },
+    {
+      "name": "Défense Nimzo-Indienne",
+      "eco_code": "E20",
+      "moves": "1. d4 Nf6 2. c4 e6 3. Nc3 Bb4",
+      "moves_raw": "d4 Nf6 c4 e6 Nc3 Bb4",
+      "variant": "Principale",
+      "fen": "rnbqk2r/pppp1ppp/4pn2/8/1bPP4/2N5/PP2PPPP/R1BQKBNR w KQkq - 2 4"
+    },
+    {
+      "name": "Nimzo-Indienne - Trois Cavaliers",
+      "eco_code": "E21",
+      "moves": "1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. Nf3",
+      "moves_raw": "d4 Nf6 c4 e6 Nc3 Bb4 Nf3",
+      "variant": "Trois Cavaliers",
+      "fen": "rnbqk2r/pppp1ppp/4pn2/8/1bPP4/2N2N2/PP2PPPP/R1BQKB1R b KQkq - 3 4"
+    },
+    {
+      "name": "Nimzo-Indienne - Variante Samisch",
+      "eco_code": "E25",
+      "moves": "1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. a3",
+      "moves_raw": "d4 Nf6 c4 e6 Nc3 Bb4 a3",
+      "variant": "Samisch",
+      "fen": "rnbqk2r/pppp1ppp/4pn2/8/1bPP4/P1N5/1P2PPPP/R1BQKBNR b KQkq - 0 4"
+    },
+    {
+      "name": "Nimzo-Indienne - Variante Classique (Qc2)",
+      "eco_code": "E32",
+      "moves": "1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. Qc2",
+      "moves_raw": "d4 Nf6 c4 e6 Nc3 Bb4 Qc2",
+      "variant": "Classique (Qc2)",
+      "fen": "rnbqk2r/pppp1ppp/4pn2/8/1bPP4/2N5/PPQ1PPPP/R1B1KBNR b KQkq - 3 4"
+    },
+    {
+      "name": "Nimzo-Indienne - Ligne Fischer",
+      "eco_code": "E44",
+      "moves": "1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. e3 b6 5. Nge2",
+      "moves_raw": "d4 Nf6 c4 e6 Nc3 Bb4 e3 b6 Nge2",
+      "variant": "Fischer",
+      "fen": "rnbqk2r/p1pp1ppp/1p2pn2/8/1bPP4/2N1P3/PP2NPPP/R1BQKB1R b KQkq - 3 5"
+    },
+    {
+      "name": "Défense Indienne du Roi",
+      "eco_code": "E60",
+      "moves": "1. d4 Nf6 2. c4 g6",
+      "moves_raw": "d4 Nf6 c4 g6",
+      "variant": "Principale",
+      "fen": "rnbqkb1r/pppppp1p/5np1/8/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3"
+    },
+    {
+      "name": "Indienne du Roi - Fianchetto",
+      "eco_code": "E62",
+      "moves": "1. d4 Nf6 2. c4 g6 3. g3",
+      "moves_raw": "d4 Nf6 c4 g6 g3",
+      "variant": "Fianchetto",
+      "fen": "rnbqkb1r/pppppp1p/5np1/8/2PP4/6P1/PP2PP1P/RNBQKBNR b KQkq - 0 3"
+    },
+    {
+      "name": "Indienne du Roi - Fianchetto, Classique",
+      "eco_code": "E67",
+      "moves": "1. d4 Nf6 2. c4 g6 3. g3 Bg7 4. Bg2 O-O 5. Nc3 d6 6. Nf3",
+      "moves_raw": "d4 Nf6 c4 g6 g3 Bg7 Bg2 O-O Nc3 d6 Nf3",
+      "variant": "Fianchetto Classique",
+      "fen": "rnbq1rk1/ppp1ppbp/3p1np1/8/2PP4/2N2NP1/PP2PPBP/R1BQK2R w KQ - 4 7"
+    },
+    {
+      "name": "Indienne du Roi - Variante Averbakh",
+      "eco_code": "E70",
+      "moves": "1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. Be2",
+      "moves_raw": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 Be2",
+      "variant": "Averbakh",
+      "fen": "rnbqk2r/ppp1ppbp/3p1np1/8/2PPP3/2N5/PP2BPPP/R1BQK1NR b KQkq - 1 5"
+    },
+    {
+      "name": "Indienne du Roi - Attaque des Quatre Pions",
+      "eco_code": "E76",
+      "moves": "1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. f4",
+      "moves_raw": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 f4",
+      "variant": "Quatre Pions",
+      "fen": "rnbqk2r/ppp1ppbp/3p1np1/8/2PPPP2/2N5/PP4PP/R1BQKBNR b KQkq f3 0 5"
+    },
+    {
+      "name": "Indienne du Roi - Variante Samisch",
+      "eco_code": "E80",
+      "moves": "1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. f3",
+      "moves_raw": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 f3",
+      "variant": "Samisch",
+      "fen": "rnbqk2r/ppp1ppbp/3p1np1/8/2PPP3/2N2P2/PP4PP/R1BQKBNR b KQkq - 0 5"
+    },
+    {
+      "name": "Indienne du Roi - Classique",
+      "eco_code": "E90",
+      "moves": "1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. Nf3",
+      "moves_raw": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 Nf3",
+      "variant": "Classique 5.Nf3",
+      "fen": "rnbqk2r/ppp1ppbp/3p1np1/8/2PPP3/2N2N2/PP3PPP/R1BQKB1R b KQkq - 1 5"
+    },
+    {
+      "name": "Indienne du Roi - Classique, Mar del Plata",
+      "eco_code": "E97",
+      "moves": "1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. Nf3 O-O 6. Be2 e5 7. O-O Nc6 8. d5 Ne7",
+      "moves_raw": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 Nf3 O-O Be2 e5 O-O Nc6 d5 Ne7",
+      "variant": "Mar del Plata",
+      "fen": "r1bq1rk1/ppp1npbp/3p2p1/3Pp3/2P1P3/2N2N2/PP2BPPP/R1BQ1RK1 w - - 2 9"
+    }
+  ]
+}

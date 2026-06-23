@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  memgraph:
+    image: memgraph/memgraph:latest
+    container_name: memgraph
+    ports:
+      - "7687:7687"
+      - "7444:7444"
+    environment:
+      - MEMGRAPH_DRIVER_SSL=false
+      - MEMGRAPH_TELEMETRY_ENABLED=false
+    volumes:
+      - memgraph_data:/var/lib/memgraph
+      - memgraph_log:/var/log/memgraph
+    networks:
+      - chess_network
+    healthcheck:
+      test: ["CMD", "python3", "-c", "import socket; socket.create_connection(('localhost', 7687), timeout=2)"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  flask_app:
+    build: .
+    container_name: chess_app
+    ports:
+      - "5000:5000"
+    environment:
+      - MEMGRAPH_HOST=memgraph
+      - MEMGRAPH_PORT=7687
+      - FLASK_DEBUG=True
+    depends_on:
+      memgraph:
+        condition: service_healthy
+    networks:
+      - chess_network
+    volumes:
+      - .:/app
+
+volumes:
+  memgraph_data:
+  memgraph_log:
+
+networks:
+  chess_network:
+    driver: bridge

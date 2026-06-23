@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ app_name }} — {{ opening.name }}</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <span class="chess-icon">♟</span> {{ app_name }}
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+        <li class="nav-item"><a class="nav-link" href="/">Accueil</a></li>
+        <li class="nav-item"><a class="nav-link active" href="/openings">Ouvertures</a></li>
+        <li class="nav-item"><a class="nav-link" href="/graph">Graphe</a></li>
+        <li class="nav-item ms-2">
+          {% if db_status %}
+            <span class="badge bg-success db-status-badge">● Memgraph connecté</span>
+          {% else %}
+            <span class="badge bg-danger db-status-badge">● Memgraph déconnecté</span>
+          {% endif %}
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container py-4">
+
+  <!-- Fil d'Ariane -->
+  <nav aria-label="breadcrumb" class="mb-3">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Accueil</a></li>
+      <li class="breadcrumb-item"><a href="/openings">Ouvertures</a></li>
+      <li class="breadcrumb-item active">{{ opening.eco_code }} — {{ opening.name }}</li>
+    </ol>
+  </nav>
+
+  <!-- En-tête détail -->
+  <div class="detail-header">
+    <div class="d-flex align-items-start justify-content-between flex-wrap gap-3">
+      <div>
+        <div class="eco-display mb-1">{{ opening.eco_code }}</div>
+        <h2 class="mb-1">{{ opening.name }}</h2>
+        {% if opening.variant %}
+          <p class="mb-0 opacity-75">Variante : {{ opening.variant }}</p>
+        {% endif %}
+      </div>
+      <!-- Actions CRUD -->
+      <div class="d-flex gap-2 flex-wrap">
+        <button class="btn btn-light btn-sm fw-bold"
+                onclick='openCrudModal({{ opening | tojson }})'>
+          ✏️ Modifier
+        </button>
+        <button class="btn btn-danger btn-sm"
+                onclick='deleteOpening("{{ opening.id }}", "{{ opening.name }}")'>
+          🗑 Supprimer
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-4">
+
+    <!-- Colonne gauche : mini-échiquier + infos -->
+    <div class="col-lg-5">
+
+      <!-- Mini échiquier -->
+      <div class="detail-section">
+        <h5>Position Finale</h5>
+        <div class="d-flex flex-column align-items-center">
+          <div id="mini-board" style="max-width:280px;width:100%;"></div>
+          {% if opening.fen %}
+          <div class="mt-2 w-100">
+            <label class="form-label small text-muted mb-1">FEN :</label>
+            <input type="text" class="form-control form-control-sm text-mono"
+                   value="{{ opening.fen }}" readonly
+                   onclick="this.select()" title="Cliquez pour sélectionner">
+          </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Infos techniques -->
+      <div class="detail-section">
+        <h5>Informations</h5>
+        <table class="table table-sm table-borderless mb-0">
+          <tr>
+            <td class="text-muted fw-bold" style="width:40%">Code ECO</td>
+            <td><span class="eco-badge">{{ opening.eco_code }}</span></td>
+          </tr>
+          <tr>
+            <td class="text-muted fw-bold">Famille</td>
+            <td>
+              {% set letter = opening.eco_code[0] %}
+              {% if letter == 'A' %}Flank Openings (A)
+              {% elif letter == 'B' %}Semi-Open (B)
+              {% elif letter == 'C' %}Open Games (C)
+              {% elif letter == 'D' %}Closed & Semi-Closed (D)
+              {% elif letter == 'E' %}Indian Defences (E)
+              {% else %}{{ letter }}{% endif %}
+            </td>
+          </tr>
+          {% if opening.variant %}
+          <tr>
+            <td class="text-muted fw-bold">Variante</td>
+            <td>{{ opening.variant }}</td>
+          </tr>
+          {% endif %}
+          <tr>
+            <td class="text-muted fw-bold">ID Memgraph</td>
+            <td><code class="small">{{ opening.id }}</code></td>
+          </tr>
+        </table>
+      </div>
+
+    </div>
+
+    <!-- Colonne droite : séquence de coups + similaires -->
+    <div class="col-lg-7">
+
+      <!-- Séquence de coups -->
+      <div class="detail-section">
+        <h5>Séquence de Coups</h5>
+
+        {% if opening.moves %}
+        <div class="mb-3">
+          <label class="form-label small text-muted">Notation annotée :</label>
+          <div class="moves-display">{{ opening.moves }}</div>
+        </div>
+        {% endif %}
+
+        {% if opening.moves_raw %}
+        <div>
+          <label class="form-label small text-muted">Coups bruts (pour comparaison) :</label>
+          <div class="moves-display" style="color:#666;">{{ opening.moves_raw }}</div>
+        </div>
+        {% endif %}
+
+        <!-- Rejouer sur l'accueil -->
+        <div class="mt-3">
+          <a href="/" class="btn btn-sm btn-outline-primary">
+            ▶ Rejouer sur l'échiquier
+          </a>
+        </div>
+      </div>
+
+      <!-- Ouvertures similaires (depuis le graphe) -->
+      <div class="detail-section">
+        <h5>
+          🔗 Ouvertures Similaires
+          <span class="badge bg-secondary ms-2" id="similar-count">chargement…</span>
+        </h5>
+        <p class="text-muted small mb-3">
+          Reliées dans le graphe par <code>SIMILAR_TO</code> :
+          même famille ECO + 2 premiers coups identiques.
+        </p>
+
+        <div id="similar-openings-list">
+          <!-- Chargé via JS -->
+          <div class="text-center py-3">
+            <div class="spinner-chess mx-auto d-block"></div>
+            <p class="text-muted small mt-2">Interrogation du graphe…</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mini visualisation graphe (vis.js, centré sur ce nœud) -->
+      <div class="detail-section">
+        <h5>🕸 Dans le Graphe</h5>
+        <p class="text-muted small mb-2">
+          Voisinage immédiat de cette ouverture dans Memgraph.
+        </p>
+        <div id="mini-graph-container"
+             style="height:300px;border-radius:8px;border:1px solid #dee2e6;background:#0d1117;">
+        </div>
+        <div class="mt-2 text-end">
+          <a href="/graph" class="btn btn-sm btn-outline-secondary">
+            Voir le graphe complet →
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </div><!-- /row -->
+
+</div><!-- /container -->
+
+<!-- ===== MODAL CRUD ===== -->
+<div class="modal fade" id="crud-modal" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal-title">Modifier l'ouverture</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="field-id">
+        <div class="row g-3">
+          <div class="col-md-8">
+            <label class="form-label">Nom *</label>
+            <input type="text" id="field-name" class="form-control" placeholder="Ex: Ruy Lopez">
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Code ECO *</label>
+            <input type="text" id="field-eco_code" class="form-control text-mono" placeholder="C97" maxlength="4">
+          </div>
+          <div class="col-12">
+            <label class="form-label">Variante</label>
+            <input type="text" id="field-variant" class="form-control" placeholder="Ex: Variante Fermée">
+          </div>
+          <div class="col-12">
+            <label class="form-label">Coups annotés</label>
+            <textarea id="field-moves" class="form-control text-mono" rows="2"
+                      placeholder="1. e4 e5 2. Nf3 Nc6 …"></textarea>
+          </div>
+          <div class="col-12">
+            <label class="form-label">Coups bruts (moves_raw)</label>
+            <input type="text" id="field-moves_raw" class="form-control text-mono"
+                   placeholder="e4 e5 Nf3 Nc6 …">
+          </div>
+          <div class="col-12">
+            <label class="form-label">Position FEN</label>
+            <input type="text" id="field-fen" class="form-control text-mono"
+                   placeholder="rnbqkbnr/pppppppp/8/8/…">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+        <button class="btn btn-primary" onclick="submitCrudForm()">💾 Enregistrer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="text-center text-muted py-4 mt-2" style="font-size:.82rem;">
+  {{ app_name }} v{{ app_version }} — Memgraph + Flask
+</footer>
+
+<!-- ===== SCRIPTS ===== -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+<script src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css">
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+<script>
+// -------------------------------------------------------
+// Initialisation spécifique à la page détail
+// -------------------------------------------------------
+
+const OPENING_ID  = "{{ opening.id }}";
+const OPENING_FEN = {{ opening.fen | tojson }};
+
+document.addEventListener('DOMContentLoaded', async () => {
+
+  // 1. Mini échiquier
+  if (OPENING_FEN) {
+    initMiniBoard('mini-board', OPENING_FEN);
+  } else {
+    document.getElementById('mini-board').innerHTML =
+      '<p class="text-muted small text-center py-4">FEN non disponible</p>';
+  }
+
+  // 2. Chargement des ouvertures similaires
+  await loadSimilarDetail(OPENING_ID);
+
+  // 3. Mini graphe vis.js
+  await loadMiniGraph(OPENING_ID);
+});
+
+// -------------------------------------------------------
+// Ouvertures similaires
+// -------------------------------------------------------
+async function loadSimilarDetail(openingId) {
+  const container = document.getElementById('similar-openings-list');
+  const countBadge = document.getElementById('similar-count');
+
+  try {
+    const data = await fetch(`/api/similar/${openingId}?depth=2`).then(r => r.json());
+    const similars = data.similar || [];
+
+    countBadge.textContent = similars.length;
+
+    if (similars.length === 0) {
+      container.innerHTML = `
+        <p class="text-muted small fst-italic">
+          Aucune ouverture similaire dans le graphe pour cette entrée.
+        </p>`;
+      return;
+    }
+
+    const html = similars.map(s => `
+      <a href="/opening/${escHtml(s.id)}" class="text-decoration-none">
+        <div class="d-flex align-items-center gap-2 p-2 rounded mb-1"
+             style="transition:background .15s"
+             onmouseover="this.style.background='#f0f4ff'"
+             onmouseout="this.style.background=''">
+          <span class="eco-badge" style="font-size:.72rem">${escHtml(s.eco_code)}</span>
+          <div>
+            <div class="small fw-bold">${escHtml(s.name)}</div>
+            ${s.variant ? `<div class="text-muted" style="font-size:.75rem">${escHtml(s.variant)}</div>` : ''}
+          </div>
+          <span class="ms-auto text-muted" style="font-size:.7rem">→</span>
+        </div>
+      </a>
+    `).join('');
+
+    container.innerHTML = html;
+  } catch (err) {
+    container.innerHTML = `<p class="text-danger small">Erreur : ${err.message}</p>`;
+    countBadge.textContent = '?';
+  }
+}
+
+// -------------------------------------------------------
+// Mini graphe (voisinage de l'ouverture courante)
+// -------------------------------------------------------
+const ECO_COLORS_LOCAL = {
+  A: { bg:'#1565c0', border:'#4fc3f7', font:'#e3f2fd' },
+  B: { bg:'#2e7d32', border:'#81c784', font:'#e8f5e9' },
+  C: { bg:'#b71c1c', border:'#e57373', font:'#ffebee' },
+  D: { bg:'#e65100', border:'#ffb74d', font:'#fff8e1' },
+  E: { bg:'#6a1b9a', border:'#ce93d8', font:'#f3e5f5' },
+};
+
+async function loadMiniGraph(openingId) {
+  const container = document.getElementById('mini-graph-container');
+  if (typeof vis === 'undefined') {
+    container.innerHTML = '<p class="text-muted text-center p-3 small">vis.js non disponible.</p>';
+    return;
+  }
+
+  try {
+    // Charger le nœud courant + ses voisins
+    const data = await fetch(`/api/similar/${openingId}?depth=2`).then(r => r.json());
+    const similars = data.similar || [];
+    const centerOpening = {{ opening | tojson }};
+
+    // Construire les nœuds et arêtes
+    const nodes = [];
+    const edges = [];
+    const seen  = new Set();
+
+    // Nœud central (plus grand, mis en valeur)
+    const cl = ECO_COLORS_LOCAL[(centerOpening.eco_code || 'A')[0]] || ECO_COLORS_LOCAL['A'];
+    nodes.push({
+      id    : String(centerOpening.id),
+      label : `${centerOpening.eco_code}\n${centerOpening.name.substring(0,16)}`,
+      color : { background: cl.border, border: '#fff' },
+      font  : { color: '#000', size: 13 },
+      size  : 28,
+      borderWidth: 3,
+    });
+    seen.add(String(centerOpening.id));
+
+    similars.forEach(s => {
+      const sid = String(s.id);
+      if (!seen.has(sid)) {
+        const c = ECO_COLORS_LOCAL[(s.eco_code || 'A')[0]] || ECO_COLORS_LOCAL['A'];
+        nodes.push({
+          id    : sid,
+          label : `${s.eco_code}\n${s.name.substring(0,14)}`,
+          color : { background: c.bg, border: c.border },
+          font  : { color: c.font, size: 10 },
+          size  : 16,
+        });
+        seen.add(sid);
+      }
+      edges.push({
+        from: String(centerOpening.id),
+        to  : sid,
+        color: { color: '#555' },
+        width: 1.5,
+        arrows: { to: { enabled: true, scaleFactor: 0.5 } },
+      });
+    });
+
+    const network = new vis.Network(container,
+      { nodes: new vis.DataSet(nodes), edges: new vis.DataSet(edges) },
+      {
+        layout  : { improvedLayout: true },
+        physics : { solver: 'barnesHut', barnesHut: { springLength: 90, gravitationalConstant: -5000 } },
+        interaction : { hover: true, navigationButtons: false, keyboard: false },
+        nodes   : { borderWidth: 2 },
+      }
+    );
+
+    // Clic → naviguer vers le nœud
+    network.on('doubleClick', params => {
+      if (params.nodes.length > 0 && params.nodes[0] !== String(centerOpening.id)) {
+        window.location = `/opening/${params.nodes[0]}`;
+      }
+    });
+
+  } catch (err) {
+    container.innerHTML = `<p class="text-danger text-center p-3 small">Erreur graphe : ${err.message}</p>`;
+  }
+}
+
+// Helper escHtml disponible depuis app.js mais redéfini ici par sécurité
+function escHtml(s) {
+  return String(s || '')
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ app_name }} — Visualisation du Graphe</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- vis.js CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <span class="chess-icon">♟</span> {{ app_name }}
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+        <li class="nav-item"><a class="nav-link" href="/">Accueil</a></li>
+        <li class="nav-item"><a class="nav-link" href="/openings">Ouvertures</a></li>
+        <li class="nav-item"><a class="nav-link active" href="/graph">Graphe</a></li>
+        <li class="nav-item ms-2">
+          {% if db_status %}
+            <span class="badge bg-success db-status-badge">● Memgraph connecté</span>
+          {% else %}
+            <span class="badge bg-danger db-status-badge">● Memgraph déconnecté</span>
+          {% endif %}
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid py-3 px-4">
+
+  <!-- Titre page -->
+  <div class="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-2">
+    <div>
+      <h4 class="mb-0">🕸 Visualisation du Graphe Memgraph</h4>
+      <small class="text-muted" id="graph-stats">Chargement…</small>
+    </div>
+
+    <!-- Toolbar graphe -->
+    <div class="graph-controls">
+      <button class="btn btn-sm btn-outline-secondary" onclick="graphFitAll()" title="Ajuster la vue">
+        ⊞ Tout afficher
+      </button>
+      <button class="btn btn-sm btn-outline-secondary" onclick="graphZoomIn()" title="Zoom +">
+        🔍+
+      </button>
+      <button class="btn btn-sm btn-outline-secondary" onclick="graphZoomOut()" title="Zoom -">
+        🔍−
+      </button>
+      <button class="btn btn-sm btn-outline-warning" onclick="graphStabilize()" title="Restabiliser">
+        ↺ Stabiliser
+      </button>
+    </div>
+  </div>
+
+  <div class="row g-3">
+
+    <!-- Graphe (colonne large) -->
+    <div class="col-xl-9">
+
+      <!-- Filtres ECO -->
+      <div class="d-flex gap-2 flex-wrap mb-2 align-items-center">
+        <span class="text-muted small fw-bold me-1">Famille :</span>
+        <button class="btn btn-sm eco-filter-btn btn-outline-secondary active"
+                onclick="applyEcoFilter('')">Toutes</button>
+        <button class="btn btn-sm eco-filter-btn"
+                style="border-color:#4fc3f7;color:#4fc3f7"
+                onclick="applyEcoFilter('A')">A – Flank</button>
+        <button class="btn btn-sm eco-filter-btn"
+                style="border-color:#81c784;color:#81c784"
+                onclick="applyEcoFilter('B')">B – Semi-ouverts</button>
+        <button class="btn btn-sm eco-filter-btn"
+                style="border-color:#e57373;color:#e57373"
+                onclick="applyEcoFilter('C')">C – Ouverts</button>
+        <button class="btn btn-sm eco-filter-btn"
+                style="border-color:#ffb74d;color:#ffb74d"
+                onclick="applyEcoFilter('D')">D – Fermés</button>
+        <button class="btn btn-sm eco-filter-btn"
+                style="border-color:#ce93d8;color:#ce93d8"
+                onclick="applyEcoFilter('E')">E – Indiennes</button>
+      </div>
+
+      <!-- Canvas du graphe -->
+      <div id="graph-container"></div>
+
+      <!-- Légende -->
+      <div class="graph-legend mt-2 ps-1">
+        <div class="legend-item">
+          <div class="legend-dot eco-A"></div><span class="small">Flank (A)</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot eco-B"></div><span class="small">Semi-ouverts (B)</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot eco-C"></div><span class="small">Jeux ouverts (C)</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot eco-D"></div><span class="small">Fermés (D)</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot eco-E"></div><span class="small">Défenses indiennes (E)</span>
+        </div>
+        <div class="legend-item ms-3">
+          <div style="width:30px;height:2px;background:#555;border-radius:2px;"></div>
+          <span class="small">SIMILAR_TO</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panneau latéral -->
+    <div class="col-xl-3">
+
+      <!-- Info nœud sélectionné -->
+      <div class="detail-section mb-3">
+        <h6 class="text-muted fw-bold mb-2">Nœud sélectionné</h6>
+        <div id="node-info-panel">
+          <p class="placeholder-text">
+            Cliquez sur un nœud pour voir ses informations.<br>
+            <small>Double-clic → page détail</small>
+          </p>
+        </div>
+      </div>
+
+      <!-- Requêtes Cypher pédagogiques -->
+      <div class="detail-section">
+        <h6 class="text-muted fw-bold mb-2">💻 Requêtes Cypher</h6>
+        <p class="text-muted" style="font-size:.78rem;">
+          Copiez ces requêtes dans
+          <a href="http://localhost:3000" target="_blank">Memgraph Lab</a>
+          (port 3000).
+        </p>
+
+        <div class="mb-3">
+          <div class="small fw-bold text-success mb-1">Tous les nœuds Opening :</div>
+          <div class="p-2 rounded" style="background:#0d1117;color:#79c0ff;font-family:monospace;font-size:.72rem;white-space:pre-wrap;">MATCH (o:Opening)
+RETURN o.eco_code,
+       o.name
+ORDER BY o.eco_code
+LIMIT 50;</div>
+        </div>
+
+        <div class="mb-3">
+          <div class="small fw-bold text-success mb-1">Toutes les relations :</div>
+          <div class="p-2 rounded" style="background:#0d1117;color:#79c0ff;font-family:monospace;font-size:.72rem;white-space:pre-wrap;">MATCH (a)-[r:SIMILAR_TO]->(b)
+RETURN a.eco_code,
+       b.eco_code,
+       type(r)
+LIMIT 30;</div>
+        </div>
+
+        <div class="mb-3">
+          <div class="small fw-bold text-success mb-1">Chemin le plus court :</div>
+          <div class="p-2 rounded" style="background:#0d1117;color:#79c0ff;font-family:monospace;font-size:.72rem;white-space:pre-wrap;">MATCH p = shortestPath(
+  (a:Opening {eco_code:'C00'})
+  -[:SIMILAR_TO*]-
+  (b:Opening {eco_code:'D30'})
+)
+RETURN
+  [n IN nodes(p)|n.eco_code]
+  AS chemin;</div>
+        </div>
+
+        <div>
+          <div class="small fw-bold text-success mb-1">Hubs (plus connectés) :</div>
+          <div class="p-2 rounded" style="background:#0d1117;color:#79c0ff;font-family:monospace;font-size:.72rem;white-space:pre-wrap;">MATCH (o:Opening)
+-[r:SIMILAR_TO]-()
+RETURN o.name,
+       count(r) AS deg
+ORDER BY deg DESC
+LIMIT 10;</div>
+        </div>
+      </div>
+
+      <!-- Lien Memgraph Lab -->
+      <div class="detail-section text-center">
+        <p class="text-muted small mb-2">Explorer directement dans :</p>
+        <a href="http://localhost:3000" target="_blank"
+           class="btn btn-sm btn-outline-primary w-100">
+          🔬 Ouvrir Memgraph Lab
+        </a>
+        <p class="text-muted mt-2" style="font-size:.72rem;">
+          (Disponible si Docker tourne avec <code>-p 3000:3000</code>)
+        </p>
+      </div>
+
+    </div>
+
+  </div><!-- /row -->
+
+  <!-- Section pédagogique : pourquoi le graphe -->
+  <div class="detail-section mt-4">
+    <h5>🎓 Pourquoi une Base de Données Graphe pour les Échecs ?</h5>
+    <div class="row g-3 mt-1">
+      <div class="col-md-4">
+        <div class="d-flex gap-2">
+          <div style="font-size:1.5rem">🔗</div>
+          <div>
+            <strong>Relations natives</strong>
+            <p class="text-muted small mb-0">
+              Les relations <code>SIMILAR_TO</code> sont des citoyens de première classe dans
+              Memgraph — pas des jointures SQL coûteuses. Trouver des variantes proches est
+              une traversée de graphe, naturellement.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="d-flex gap-2">
+          <div style="font-size:1.5rem">⚡</div>
+          <div>
+            <strong>Performances en profondeur</strong>
+            <p class="text-muted small mb-0">
+              Trouver un chemin entre deux ouvertures (<em>shortestPath</em>) est O(V+E)
+              sur un graphe, contre O(n²) avec des auto-jointures SQL.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="d-flex gap-2">
+          <div style="font-size:1.5rem">🧠</div>
+          <div>
+            <strong>Modèle intuitif</strong>
+            <p class="text-muted small mb-0">
+              Chaque ouverture = un nœud. Chaque parenté = une arête. Le schéma du graphe
+              reflète directement la réalité des échecs — hiérarchie ECO, familles, variantes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /container-fluid -->
+
+<footer class="text-center text-muted py-3 mt-2" style="font-size:.82rem;">
+  {{ app_name }} v{{ app_version }} — Memgraph + vis.js
+</footer>
+
+<!-- ===== SCRIPTS ===== -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+<script>
+// Boutons filtre ECO — activation visuelle
+function applyEcoFilter(letter) {
+  document.querySelectorAll('.eco-filter-btn').forEach(b => {
+    b.classList.remove('active');
+    b.style.background = '';
+    b.style.color = b.dataset.color || '';
+  });
+  event.currentTarget.classList.add('active');
+  event.currentTarget.style.background = 'rgba(255,255,255,.15)';
+  filterGraphByEco(letter);
+}
+</script>
+
+</body>
+</html>
